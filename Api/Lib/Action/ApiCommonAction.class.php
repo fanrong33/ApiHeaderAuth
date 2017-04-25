@@ -12,7 +12,7 @@ class ApiCommonAction extends Action{
         /** 授权认证算法
          php客户端实现通过 CURLOPT_HTTPHEADER
 
-         time    发送请求时的时间戳，与服务器时间戳最大相差不得超过1800秒，否则判断为失效请求
+         time    发送请求时的时间戳（10位数字），与服务器时间戳最大相差不得超过1800秒，否则判断为失效请求
          token   由time, APIKey共同加密组成，验证请求合法性
                  例：由md5(APIKey.md5(time))  生成
         */
@@ -36,7 +36,7 @@ class ApiCommonAction extends Action{
         }
 
         // TODO 从应用数据库获取信息
-        $apikey = 'AT6KWO7M338YK9SJ0KQM'; // 暂时手动填写测试应用api的apikey
+        $apikey = 'AT6KWO7M338YK9SJ0KQM'; // 暂时手动填写测试应用api的apikey（20位字符串）
         
         
         $server_token = md5($apikey.md5($time));
